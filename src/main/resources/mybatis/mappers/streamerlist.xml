@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="miniproject01.streamerlist.mapper.StreamerInfoMapper">	
+	<!-- RETRIEVE: GET -->	
+	<select id="selectAllItems" resultType="streamerInfo">
+	SELECT id, name, followers, avgViews, dailyHours, thumbnail, followerTrends, upd_date FROM streamerlist
+	</select>
+	
+	<!-- INSERT: POST-->	
+	<insert id="insertItem" parameterType="streamerInfo">
+	INSERT INTO streamerlist (name, followers, avgViews, dailyHours, thumbnail, followerTrends) 
+	VALUES(#{name}, #{followers}, #{avgViews}, #{dailyHours}, #{thumbnail}, #{followerTrends})
+	</insert>
+	
+	<!-- RETRIEVE: GET-->	
+	<select id="selectById" parameterType="int" 
+		resultType="streamerInfo">
+	SELECT * FROM streamerlist WHERE id=#{id}	
+	</select>
+	
+	<!-- UPDATE: PUT-->	
+	<update id="updateItem" parameterType="streamerInfo">
+	UPDATE streamerlist
+	SET name=#{name}, followers=#{followers}, avgViews=#{avgViews}, dailyHours=#{dailyHours}, thumbnail=#{thumbnail}, followerTrends=#{followerTrends}
+	WHERE id=#{id}
+	</update>
+
+	<!-- DELETE: DELETE-->	
+	<delete id="deleteItem"
+		parameterType="int">
+	DELETE FROM streamerlist WHERE id=#{id}	
+	</delete>
+
+</mapper>
