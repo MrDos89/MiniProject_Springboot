@@ -8,14 +8,14 @@ import miniproject01.streamerlist.repository.vo.StreamerInfo;
 
 @Mapper
 public interface StreamerInfoMapper {
-//	<select id="selectAllItems" resultType="shopItem">
+//	<select id="selectAllItems" resultType="StreamerInfo">
 	List<StreamerInfo> selectAllItems();
-//	<insert id="insertItem" parameterType="shopItem">
+//	<insert id="insertItem" parameterType="StreamerInfo">
 	int insertItem(StreamerInfo item);
 //	<select id="selectById" parameterType="int" 
 //			resultType="shopItem">
 	StreamerInfo selectById(Integer id);
-//	<update id="updateItem" parameterType="shopItem">
+//	<update id="updateItem" parameterType="StreamerInfo">
 	int updateItem(StreamerInfo item);
 //	<delete id="deleteItem"
 //			parameterType="int">
